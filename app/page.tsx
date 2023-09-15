@@ -12,13 +12,11 @@ export default function Home() {
     console.log("handleEditorChange", html, text);
   }
   return (
-    <div className="bg-gray-50 text-black">
-      <div className="text-3xl flex justify-center p-3">
-        React Markdown Editor
-      </div>
-      <div className="">
+    <div className="bg-gray-50 text-black h-screen">
+      <div className="text-3xl flex justify-center p-3">Markdown Editor</div>
+      <div className="flex justify-center">
         <MdEditor
-          style={{ height: "500px" }}
+          style={{ height: "500px", width: "80%" }}
           renderHTML={(text) => mdParser.render(text)}
           onChange={handleEditorChange}
         />
