@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdxeditor/editor": "^1.1.2",
     "@types/markdown-it": "^13.0.1",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
