@@ -1,4 +1,8 @@
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <>
       <nav className="bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
@@ -20,28 +24,14 @@ export default function Navbar() {
                 Home
               </Link>
               <Link
-                href="/tasks"
+                href="/richtext"
                 className={`${
-                  pathname === "/tasks"
+                  pathname === "/richtext"
                     ? "text-gray-100"
                     : "text-gray-400 hover:text-gray-200"
                 } text-sm font-medium`}>
-                Tasks
+                RichtextEditor
               </Link>
-            </div>
-          </div>
-          <div className="flex md:order-2 items-center space-x-3">
-            <div className="relative hidden md:block">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                <MagnifyingGlassIcon className="text-gray-400 w-5 h-5" />
-                <span className="sr-only">Search icon</span>
-              </div>
-              <input
-                type="text"
-                id="search-navbar"
-                className="block w-full outline-none p-2 pl-8 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Search..."
-              />
             </div>
           </div>
         </div>

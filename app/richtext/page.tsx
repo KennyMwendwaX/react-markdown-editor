@@ -3,7 +3,7 @@
 import { Editable, useEditor } from "@wysimark/react";
 import { useState } from "react";
 
-const MyComponent = () => {
+const RichText = () => {
   const [markdown, setMarkdown] = useState("# Hello World");
   const editor = useEditor({});
 
@@ -29,4 +29,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default RichText;
