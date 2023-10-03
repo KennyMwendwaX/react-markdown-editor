@@ -9,17 +9,17 @@ const RichText = () => {
 
   const resetMarkdown = () => {
     // reset the editor to an empty string
-    editor.setMarkdown("");
+    editor.setMarkdown("# Hi Yall");
   };
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="pt-8 mx-20">
+      <div className="pt-16 mx-48">
         <button className="text-black" onClick={resetMarkdown}>
           Reset Markdown
         </button>
         <Editable
-          className="h-[400px]"
+          className="h-[400px] w-[500px]"
           editor={editor}
           value={markdown}
           onChange={setMarkdown}

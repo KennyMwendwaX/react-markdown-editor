@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,7 +12,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-8">
             <Link href="/">
               <span className="self-center text-xl font-semibold whitespace-nowrap text-slate-200">
-                TaskTracker
+                MDEditor
               </span>
             </Link>
             <div className="space-x-3">
@@ -21,16 +23,16 @@ export default function Navbar() {
                     ? "text-gray-100"
                     : "text-gray-400 hover:text-gray-200"
                 } text-sm font-medium`}>
-                Home
+                Example1
               </Link>
               <Link
-                href="/richtext"
+                href="/example2"
                 className={`${
-                  pathname === "/richtext"
+                  pathname === "/example2"
                     ? "text-gray-100"
                     : "text-gray-400 hover:text-gray-200"
                 } text-sm font-medium`}>
-                RichtextEditor
+                Example2
               </Link>
             </div>
           </div>

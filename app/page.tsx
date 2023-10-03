@@ -29,8 +29,7 @@ export default function Home() {
   }
   return (
     <div className="bg-gray-50 text-black h-screen">
-      <div className="text-3xl flex justify-center p-3">Markdown Editor</div>
-      <div className="flex justify-center mx-auto w-3/4">
+      <div className="flex justify-center mx-auto p-20 w-3/4">
         <MdEditor
           style={{ height: "500px", width: "100%" }}
           renderHTML={(text) => mdParser.render(text)}
