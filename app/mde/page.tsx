@@ -1,64 +1,27 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import SimpleMdeReact, {
-  SimpleMDEReactProps,
-  SimpleMdeToCodemirrorEvents,
-} from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
+import { Editable, useEditor } from "@wysimark/react";
+import { useRef, useState } from "react";
 
-let counter = 1;
-export const State = (props: any) => {
+const MyComponent = () => {
+  const [markdown, setMarkdown] = useState("# Hello World");
+  const editor = useEditor({});
+
+  const resetMarkdown = () => {
+    // reset the editor to an empty string
+    editor.setMarkdown("");
+  };
+
   return (
-    <div style={{ margin: "8px" }}>
-      <code data-testid="state">{JSON.stringify(props, null, 2)}</code>
+    <div className="bg-white min-h-screen">
+      <div className="pt-8 mx-20">
+        <button className="text-black" onClick={resetMarkdown}>
+          Reset Markdown
+        </button>
+        <Editable editor={editor} value={markdown} onChange={setMarkdown} />
+      </div>
     </div>
   );
 };
 
-const events = {
-  focus: () => console.log("focus"),
-} as SimpleMdeToCodemirrorEvents;
-
-export const UpdateUsingButtonWithAutofocus = () => {
-  const [value, setValue] = useState(
-    "I am the initial value. Erase me, or try the button above."
-  );
-
-  const onChange = (value: string) => {
-    setValue(value);
-  };
-
-  const handleTextChangeByButton = () => {
-    setValue(`Changing text by setting new state. ${counter++}`);
-  };
-
-  const autofocusNoSpellcheckerOptions = useMemo(() => {
-    return {
-      autofocus: true,
-      spellChecker: false,
-    } as SimpleMDEReactProps;
-  }, []);
-
-  return (
-    <div data-testid="autofocus-no-spellchecker">
-      <h4>Autofocus spellchecker disabled, button updated, controlled</h4>
-      <button
-        style={{ display: "inline-block", margin: "10px 0" }}
-        onClick={handleTextChangeByButton}>
-        Click me to update the textValue outside of the editor
-      </button>
-      <State value={value} />
-      <h4>Update by button</h4>
-      <SimpleMdeReact
-        data-testid="autofocus-no-spellchecker-editor"
-        options={autofocusNoSpellcheckerOptions}
-        value={value}
-        onChange={onChange}
-        events={events}
-      />
-    </div>
-  );
-};
-
-export default UpdateUsingButtonWithAutofocus;
+export default MyComponent;
