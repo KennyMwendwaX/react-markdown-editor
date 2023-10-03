@@ -1,7 +1,7 @@
 "use client";
 
 import { Editable, useEditor } from "@wysimark/react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const MyComponent = () => {
   const [markdown, setMarkdown] = useState("# Hello World");
@@ -18,7 +18,12 @@ const MyComponent = () => {
         <button className="text-black" onClick={resetMarkdown}>
           Reset Markdown
         </button>
-        <Editable editor={editor} value={markdown} onChange={setMarkdown} />
+        <Editable
+          className="h-[400px]"
+          editor={editor}
+          value={markdown}
+          onChange={setMarkdown}
+        />
       </div>
     </div>
   );
