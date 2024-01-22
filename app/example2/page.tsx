@@ -2,14 +2,14 @@
 
 import { Editable, useEditor } from "@wysimark/react";
 import { useState } from "react";
+import MarkdownPreview from "@uiw/react-markdown-preview";
 
-const RichText = () => {
-  const [markdown, setMarkdown] = useState("# Hello World");
+export default function RichText() {
   const editor = useEditor({});
-
+  const [markdown, setMarkdown] = useState("# Hello World");
   const resetMarkdown = () => {
-    // reset the editor to an empty string
-    editor.setMarkdown("# Hi Yall");
+    // Reset the editor to the saved markdown
+    editor.setMarkdown(markdown);
   };
 
   return (
@@ -25,8 +25,9 @@ const RichText = () => {
           onChange={setMarkdown}
         />
       </div>
+      <div className="pt-6 px-6 mx-auto">
+        <MarkdownPreview source={markdown} />
+      </div>
     </div>
   );
-};
-
-export default RichText;
+}
