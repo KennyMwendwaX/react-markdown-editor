@@ -3,6 +3,7 @@
 import { Editable, useEditor } from "@wysimark/react";
 import { useState } from "react";
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import rehypeSanitize from "rehype-sanitize";
 
 export default function RichText() {
   const editor = useEditor({});
@@ -25,6 +26,7 @@ alert("Hi yall");
 
 <!-- test --> 456 <!-- test -->
 `;
+  const rehypePlugins = [rehypeSanitize];
 
   return (
     <div className="bg-white min-h-screen pb-4">
@@ -43,7 +45,7 @@ alert("Hi yall");
         <div className="text-3xl text-black font-semibold">
           Markdown Preview
         </div>
-        <MarkdownPreview source={source} />
+        <MarkdownPreview source={source} rehypePlugins={rehypePlugins} />
       </div>
     </div>
   );
