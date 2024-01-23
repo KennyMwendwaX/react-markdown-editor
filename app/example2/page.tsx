@@ -9,11 +9,25 @@ export default function RichText() {
   const [markdown, setMarkdown] = useState("# Hello World");
   const resetMarkdown = () => {
     // Reset the editor to the saved markdown
-    editor.setMarkdown(markdown);
+    editor.setMarkdown("# Hello World");
   };
+  const source = `
+## MarkdownPreview
+
+**Hello world!!!** <IFRAME SRC=\"javascript:javascript:alert(window.origin);\"></IFRAME>
+
+a
+
+alert("Hi yall");
+
+
+<!-- test --> 123
+
+<!-- test --> 456 <!-- test -->
+`;
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen pb-4">
       <div className="pt-16 mx-48">
         <button className="text-black" onClick={resetMarkdown}>
           Reset Markdown
@@ -25,8 +39,11 @@ export default function RichText() {
           onChange={setMarkdown}
         />
       </div>
-      <div className="pt-6 px-6 mx-auto">
-        <MarkdownPreview source={markdown} />
+      <div className="pt-6 mx-auto w-[950px]">
+        <div className="text-3xl text-black font-semibold">
+          Markdown Preview
+        </div>
+        <MarkdownPreview source={source} />
       </div>
     </div>
   );
